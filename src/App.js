@@ -1,23 +1,29 @@
 import React  from 'react';
-
-import Nav from './components/Nav'
-import Home from './components/Home'
 import { Routes, Route } from 'react-router-dom'
-import About from './components/About'
-import Single from './components/Single'
-import Footer from './components/Footer'
+// pages 
+import { Home, Contact } from './pages';
+import { Login, Register, Reset } from './pages';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+// components 
+import {Header, Footer} from './components'
 
 const App = () => {
   return (
     <div>
+      <ToastContainer />
       <div className="text-center">
-        <Nav />
+        <Header />
         <Routes>
-          <Route path="/about" element={<About />} />
-          <Route path="*" element={<Home />} />
-          <Route path="/single/:id" element={<Single />} />
+          <Route path="/" exact element={<Home />} />
+          <Route path='/contact' element={<Contact />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
+          <Route path='/reset' element={<Reset />} />
+
         </Routes>
-        <Footer/>
+        <Footer />
       </div>
     </div>
 
